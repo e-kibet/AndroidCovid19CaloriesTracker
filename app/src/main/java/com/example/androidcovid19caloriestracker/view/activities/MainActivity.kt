@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.ActivityMainBinding
 import com.example.androidcovid19caloriestracker.viewmodel.MainViewModel
@@ -16,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +33,10 @@ class MainActivity : AppCompatActivity() {
             run {
                     when (destination.id) {
                         R.id.splashFragment -> mainViewModel.hideBottomNav()
-                        R.id.homeFragment ->  navController.navigateUp()
+                        R.id.homeFragment -> {
+                            mainViewModel.showBottomNav()
+                            binding.mainToolbar.title = "Covid19 Calories Tracker"
+                        }
                         else -> mainViewModel.showBottomNav()
                     }
             }
