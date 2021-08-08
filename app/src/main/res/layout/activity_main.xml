@@ -31,6 +31,18 @@
             app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
             app:navGraph="@navigation/nav_graph" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            app:layout_constraintBottom_toBottomOf="@id/nav_host_fragment"
+            android:src="@drawable/ic_add_24"
+            android:contentDescription="@string/add"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="16dp"
+            tools:ignore="MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
