@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.SplashFragment"
+        android:label=""
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom"
+            app:destination="@+id/homeFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.HomeFragment"
+        android:label="Calories Tracker"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_addMealFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom"
+            app:destination="@+id/addMealFragment"/>
+
+        <action
+            android:id="@+id/action_homeFragment_to_editMealFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom"
+            app:destination="@+id/editMealFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addMealFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.AddMealFragment"
+        android:label="Add Meal"
+        tools:layout="@layout/fragment_add_meal">
+
+        <action
+            android:id="@+id/addMealFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editMealFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.EditMealFragment"
+        android:label="Edit Meal"
+        tools:layout="@layout/fragment_edit_meal">
+
+        <action
+            android:id="@+id/editMealFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom"/>
+
+    </fragment>
+
+</navigation>
