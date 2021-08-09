@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.*
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Switch
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -13,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.FragmentAddMealBinding
 import com.example.androidcovid19caloriestracker.viewmodel.AddMealViewModel
-import com.example.androidcovid19caloriestracker.viewmodel.MainViewModel
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
