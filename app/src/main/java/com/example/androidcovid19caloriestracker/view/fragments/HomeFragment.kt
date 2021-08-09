@@ -56,6 +56,4 @@ class HomeFragment : Fragment() {
         super.onStop()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
-
-
 }

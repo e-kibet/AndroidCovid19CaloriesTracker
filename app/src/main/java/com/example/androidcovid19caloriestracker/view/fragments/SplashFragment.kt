@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.FragmentSplashBinding
@@ -23,7 +22,6 @@ class SplashFragment : Fragment() {
         Handler().postDelayed({
             findNavController().navigate(R.id.homeFragment, null)
         }, 2000)
-
 
         return binding.root
     }

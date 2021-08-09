@@ -32,10 +32,10 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Covid19CaloriesMeal App"
+                android:text="Calories Tracker App"
                 android:textColor="@color/white"
                 android:fontFamily="@font/baloo"
-                android:textSize="25dp" />
+                android:textSize="30dp" />
 
         </LinearLayout>
 
