@@ -8,8 +8,7 @@ import androidx.lifecycle.ViewModel
 class MainViewModel : ViewModel() {
 
     private val _bottomNavigationVisibility = MutableLiveData<Int>()
-    val bottomNavigationVisibility: LiveData<Int>
-        get() = _bottomNavigationVisibility
+    val bottomNavigationVisibility: LiveData<Int> get() = _bottomNavigationVisibility
 
     init {
         showBottomNav()

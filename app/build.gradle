@@ -57,4 +57,9 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.4.0-alpha06")
+
+    //google play service
+    implementation 'com.google.android.gms:play-services-vision:11.0.2'
+
+
 }
