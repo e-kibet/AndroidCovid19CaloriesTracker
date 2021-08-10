@@ -1,5 +1,7 @@
 # AndroidCovid19 Calories App
 
+AndroidCovid19 Calories App is an application for tracking the number of calories he eats everyday
+
 It is written 100% in Kotlin with both UI and Unit tests
 
 ## Languages, libraries and tools used
