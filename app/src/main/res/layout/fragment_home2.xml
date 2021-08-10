@@ -10,7 +10,10 @@
             type="com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel"/>
     </data>
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="@color/bg_color"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -147,120 +150,146 @@
                 app:layout_constraintTop_toBottomOf="@id/lly_chart">
 
                 <!--CARBS-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <TextView
-                        android:id="@+id/label_carbs"
-                        android:layout_width="wrap_content"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    style="@style/Widget.MaterialComponents.CardView"
+                    app:cardCornerRadius="4dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_carbs"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        style="@style/addfood_label_carbs"/>
+                        android:orientation="horizontal"
+                        android:weightSum="3">
 
-                    <TextView
-                        android:id="@+id/tv_current_carbs"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayTotalCarbs}"
-                        app:layout_constraintTop_toBottomOf="@id/label_carbs"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="10 g"
-                        style="@style/addfood_tv_nutrient"/>
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/label_carbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_carbs"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            style="@style/addfood_label_carbs"/>
 
-                    <TextView
-                        android:id="@+id/tv_percent_carbs"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tv_current_carbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayTotalCarbs}"
+                            app:layout_constraintTop_toBottomOf="@id/label_carbs"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="10 g"
+                            style="@style/addfood_tv_nutrient"/>
+
+                        <TextView
+                            android:id="@+id/tv_percent_carbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayCarbsPercent}"
+                            app:layout_constraintTop_toBottomOf="@id/tv_current_carbs"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="5%"
+                            style="@style/addfood_tv_nutrient_precent"/>
+                    </LinearLayout>
+
+                    <!--PROTEINS-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayCarbsPercent}"
-                        app:layout_constraintTop_toBottomOf="@id/tv_current_carbs"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="5%"
-                        style="@style/addfood_tv_nutrient_precent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/label_proteins"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_proteins"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            style="@style/addfood_label_proteins"/>
 
-                <!--PROTEINS-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <TextView
-                        android:id="@+id/label_proteins"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/tv_current_proteins"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayTotalProteins}"
+                            app:layout_constraintTop_toBottomOf="@id/label_proteins"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="12 g"
+                            style="@style/addfood_tv_nutrient"/>
+
+                        <TextView
+                            android:id="@+id/tv_percent_proteins"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayProteinsPercent}"
+                            app:layout_constraintTop_toBottomOf="@id/tv_current_proteins"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="5%"
+                            style="@style/addfood_tv_nutrient_precent"/>
+
+                    </LinearLayout>
+
+                    <!--FATS-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_proteins"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        style="@style/addfood_label_proteins"/>
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/label_fats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_fats"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            style="@style/addfood_label_fats"/>
 
-                    <TextView
-                        android:id="@+id/tv_current_proteins"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayTotalProteins}"
-                        app:layout_constraintTop_toBottomOf="@id/label_proteins"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="12 g"
-                        style="@style/addfood_tv_nutrient"/>
+                        <TextView
+                            android:id="@+id/tv_current_fats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayTotalFats}"
+                            app:layout_constraintTop_toBottomOf="@id/label_fats"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="32 g"
+                            style="@style/addfood_tv_nutrient"/>
 
-                    <TextView
-                        android:id="@+id/tv_percent_proteins"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayProteinsPercent}"
-                        app:layout_constraintTop_toBottomOf="@id/tv_current_proteins"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="5%"
-                        style="@style/addfood_tv_nutrient_precent"/>
+                        <TextView
+                            android:id="@+id/tv_percent_fats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.displayFatsPercent}"
+                            app:layout_constraintTop_toBottomOf="@id/tv_current_fats"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:text="5%"
+                            style="@style/addfood_tv_nutrient_precent"/>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
-                <!--FATS-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-                    <TextView
-                        android:id="@+id/label_fats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/label_fats"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        style="@style/addfood_label_fats"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
-                        android:id="@+id/tv_current_fats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayTotalFats}"
-                        app:layout_constraintTop_toBottomOf="@id/label_fats"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="32 g"
-                        style="@style/addfood_tv_nutrient"/>
-
-                    <TextView
-                        android:id="@+id/tv_percent_fats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.displayFatsPercent}"
-                        app:layout_constraintTop_toBottomOf="@id/tv_current_fats"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="5%"
-                        style="@style/addfood_tv_nutrient_precent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 

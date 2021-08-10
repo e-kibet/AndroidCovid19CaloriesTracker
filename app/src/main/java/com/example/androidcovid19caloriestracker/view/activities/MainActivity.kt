@@ -10,12 +10,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.ActivityMainBinding
+import com.example.androidcovid19caloriestracker.utils.addTodayLabel
+import com.example.androidcovid19caloriestracker.utils.getCurrentDayString
+import com.example.androidcovid19caloriestracker.utils.makeDateReadable
+import com.example.androidcovid19caloriestracker.view.fragments.Home2Fragment
 import com.example.androidcovid19caloriestracker.viewmodel.MainViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Home2Fragment.OnOverviewCurrent {
     lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
+    private var isOverviewCurrent = false
+    private var _selectedDate: String? = "2020-03-10"
+    var selectedDate: String? = null
+        get() = _selectedDate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,5 +69,20 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onOverviewCurrent(isCurrent: Boolean) {
+        isOverviewCurrent = isCurrent
+        invalidateOptionsMenu()
+        if (isCurrent) {
+            val dbFormattedDate = selectedDate ?: getCurrentDayString()
+            var readableDate = dbFormattedDate.makeDateReadable()
+            if (dbFormattedDate == getCurrentDayString()) {
+                readableDate = readableDate.addTodayLabel()
+            }
+            supportActionBar?.subtitle = readableDate
+        } else {
+            supportActionBar?.subtitle = ""
+        }
     }
 }
