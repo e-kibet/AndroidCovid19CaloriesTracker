@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.adapters.OverviewRVAdapter
 import com.example.androidcovid19caloriestracker.databinding.FragmentHome2Binding
@@ -36,6 +37,10 @@ class Home2Fragment : Fragment() {
             Toast.makeText(requireContext(), item.toString(), Toast.LENGTH_SHORT).show()
             binding.currentDate.text = item.toString()
         })
+
+        binding.btnOverviewToSearch.setOnClickListener {
+            Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_SearchFragment)
+        }
 
         val application = requireActivity().application
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao

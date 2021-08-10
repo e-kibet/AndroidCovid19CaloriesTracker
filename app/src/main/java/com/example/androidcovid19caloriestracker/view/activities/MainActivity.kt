@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                     }
             }
         }
+
         binding.fab.setOnClickListener {
             showDatePickerDialog()
         }

@@ -22,7 +22,7 @@
                 android:id="@+id/currentDate"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/baloo"
-                android:text="2020-10-10 12:00:00"
+                android:text="--Empty Date--"
                 android:textAlignment="center"
                 android:textSize="16dp"
                 android:layout_height="wrap_content"
