@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_round_add_icon.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/font/.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/add_food_line_sheet.xml" value="0.17864583333333334" />

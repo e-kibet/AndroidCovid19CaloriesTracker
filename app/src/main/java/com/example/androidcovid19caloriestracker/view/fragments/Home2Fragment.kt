@@ -58,7 +58,7 @@ class Home2Fragment : Fragment() {
             viewModel.setDateSelected(selectedDate)
             if (selectedDate != getCurrentDayString()) {
                 // Hide search btn
-                binding.btnOverviewToSearch.visibility = View.INVISIBLE
+                binding.btnOverviewToSearch.visibility = View.VISIBLE
             } else {
                 binding.btnOverviewToSearch.visibility = View.VISIBLE
             }
