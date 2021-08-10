@@ -20,7 +20,7 @@ class SplashFragment : Fragment() {
         binding = FragmentSplashBinding.inflate(inflater)
 
         Handler().postDelayed({
-            findNavController().navigate(R.id.homeFragment, null)
+            findNavController().navigate(R.id.home2Fragment, null)
         }, 2000)
 
         return binding.root

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                             supportActionBar?.hide()
                             binding.fab.hide()
                         }
-                        R.id.homeFragment -> {
+                        R.id.home2Fragment -> {
                             mainViewModel.showBottomNav()
                             binding.fab.show()
                             supportActionBar?.hide()
