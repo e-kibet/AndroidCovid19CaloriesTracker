@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.androidcovid19caloriestracker.view.fragments.DailyMealFragment
 
-
 class PagerAdapter(fragment: Fragment) : FragmentStateAdapter (fragment) {
     override fun getItemCount(): Int  = 7
 

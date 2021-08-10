@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".overview.OverviewFragment" android:id="@+id/layout">
+
+    <data>
+        <variable name="viewModel"
+            type="com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel"/>
+    </data>
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guid_overview_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/default_margin"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guid_overview_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/default_margin"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guid_overview_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/default_margin"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guid_overview_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/default_margin"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cly_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/guid_overview_top"
+                app:layout_constraintStart_toStartOf="@id/guid_overview_start"
+                app:layout_constraintEnd_toStartOf="@id/guid_overview_end">
+
+                <TextView
+                    android:id="@+id/tv_total_kcal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_supertitle"
+                    android:textColor="@color/dark_blue"
+                    android:fontFamily="@font/baloo"
+                    android:text="@{viewModel.displayTotalKcal}"
+                    android:layout_marginBottom="8dp"
+                    tools:text="1890"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/label_total_kcal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_kcal"
+                    android:textSize="@dimen/text_title"
+                    android:textColor="@color/dark_blue"
+                    android:fontFamily="@font/baloo"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintStart_toEndOf="@id/tv_total_kcal"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tv_total_kcal"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.jcminarro.roundkornerlayout.RoundKornerLinearLayout
+                android:id="@+id/lly_chart"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/default_margin"
+                android:weightSum="@{viewModel.foodTotal.sumPercent + 2}"
+                android:background="@color/greyMacro"
+                app:layout_constraintTop_toBottomOf="@id/cly_title"
+                app:layout_constraintStart_toStartOf="@id/guid_overview_start"
+                app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
+                app:corner_radius="16dp">
+
+                <LinearLayout
+                    android:id="@+id/chart_value_carbs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@{viewModel.foodTotal.carbsPercent}"
+                    android:orientation="horizontal"
+                    android:background="@color/blueMacro"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:background="@color/white"/>
+
+                <LinearLayout
+                    android:id="@+id/chart_value_proteins"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@{viewModel.foodTotal.proteinPercent}"
+                    android:orientation="horizontal"
+                    android:background="@color/greenMacro"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:background="@color/white"/>
+                <LinearLayout
+                    android:id="@+id/chart_value_fats"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="@{viewModel.foodTotal.fatPercent}"
+                    android:orientation="horizontal"
+                    android:background="@color/orangeMacro"/>
+
+
+
+
+            </com.jcminarro.roundkornerlayout.RoundKornerLinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_nutrients_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginTop="@dimen/default_margin"
+                app:layout_constraintStart_toStartOf="@id/guid_overview_start"
+                app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
+                app:layout_constraintTop_toBottomOf="@id/lly_chart">
+
+                <!--CARBS-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/label_carbs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_carbs"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/addfood_label_carbs"/>
+
+                    <TextView
+                        android:id="@+id/tv_current_carbs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayTotalCarbs}"
+                        app:layout_constraintTop_toBottomOf="@id/label_carbs"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="10 g"
+                        style="@style/addfood_tv_nutrient"/>
+
+                    <TextView
+                        android:id="@+id/tv_percent_carbs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayCarbsPercent}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_current_carbs"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="5%"
+                        style="@style/addfood_tv_nutrient_precent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--PROTEINS-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/label_proteins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_proteins"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/addfood_label_proteins"/>
+
+                    <TextView
+                        android:id="@+id/tv_current_proteins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayTotalProteins}"
+                        app:layout_constraintTop_toBottomOf="@id/label_proteins"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="12 g"
+                        style="@style/addfood_tv_nutrient"/>
+
+                    <TextView
+                        android:id="@+id/tv_percent_proteins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayProteinsPercent}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_current_proteins"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="5%"
+                        style="@style/addfood_tv_nutrient_precent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--FATS-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/label_fats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_fats"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/addfood_label_fats"/>
+
+                    <TextView
+                        android:id="@+id/tv_current_fats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayTotalFats}"
+                        app:layout_constraintTop_toBottomOf="@id/label_fats"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="32 g"
+                        style="@style/addfood_tv_nutrient"/>
+
+                    <TextView
+                        android:id="@+id/tv_percent_fats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.displayFatsPercent}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_current_fats"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="5%"
+                        style="@style/addfood_tv_nutrient_precent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lly_all_foods"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/lly_nutrients_total"
+                app:layout_constraintStart_toStartOf="@id/guid_overview_start"
+                app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
+                app:top_left_corner_radius="16dp"
+                app:top_right_corner_radius="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Food List"
+                        android:fontFamily="@font/baloo"
+                        android:textSize="12dp"
+                        android:textColor="@color/dark_blue"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <ImageButton
+                        android:id="@+id/btn_overview_to_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_24"
+                        android:background="@null"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/lly_all_foods"
+                app:layout_constraintStart_toStartOf="@id/guid_overview_start"
+                app:layout_constraintEnd_toStartOf="@id/guid_overview_end"
+                app:layout_constraintBottom_toTopOf="@id/guid_overview_bottom"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

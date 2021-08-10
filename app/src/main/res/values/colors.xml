@@ -11,4 +11,16 @@
 
     <color name="dark_blue">#207398</color>
     <color name="light_blue">#51E1ED</color>
+
+
+    <!--MACROS-->
+    <color name="blueMacro">#00349E</color>
+    <color name="greenMacro">#218000</color>
+    <color name="orangeMacro">#FF7700</color>
+    <color name="greyMacro">#CECECE</color>
+
+    <!--TEXT-->
+    <color name="grey">#9D9D9D</color>
+
+    <color name="toolbar">#ECECEC</color>
 </resources>

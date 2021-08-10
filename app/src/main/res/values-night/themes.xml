@@ -17,4 +17,31 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="fontFamily">@font/baloo</item>
     </style>
+
+    <style name="addfood_label_carbs">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/blueMacro</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="addfood_tv_nutrient">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+    <style name="addfood_tv_nutrient_precent">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+    <style name="addfood_label_proteins">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/greenMacro</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+    <style name="addfood_label_fats">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/orangeMacro</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
 </resources>
