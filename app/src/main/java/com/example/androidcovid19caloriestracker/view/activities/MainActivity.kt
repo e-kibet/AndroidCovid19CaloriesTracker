@@ -1,6 +1,11 @@
 package com.example.androidcovid19caloriestracker.view.activities
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.DatePicker
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -10,21 +15,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.ActivityMainBinding
-import com.example.androidcovid19caloriestracker.utils.addTodayLabel
-import com.example.androidcovid19caloriestracker.utils.getCurrentDayString
-import com.example.androidcovid19caloriestracker.utils.makeDateReadable
-import com.example.androidcovid19caloriestracker.view.fragments.Home2Fragment
 import com.example.androidcovid19caloriestracker.viewmodel.MainViewModel
+import com.example.androidcovid19caloriestracker.viewmodel.SharedViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
-class MainActivity : AppCompatActivity(), Home2Fragment.OnOverviewCurrent {
+class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
-    private var isOverviewCurrent = false
-    private var _selectedDate: String? = "2020-03-10"
-    var selectedDate: String? = null
-        get() = _selectedDate
+    private lateinit var sharedViewModel: SharedViewModel
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity(), Home2Fragment.OnOverviewCurrent {
         navController = findNavController(R.id.nav_host_fragment)
         setupActionBarWithNavController(navController)
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+        val sdf = SimpleDateFormat("yyyy-M-dd")
+        sharedViewModel.setNameData(sdf.format(Date()).toString())
 
         mainViewModel.bottomNavigationVisibility.observe(this, Observer { toolVisibility ->
             binding.mainToolbar.visibility = toolVisibility
@@ -64,25 +69,32 @@ class MainActivity : AppCompatActivity(), Home2Fragment.OnOverviewCurrent {
             }
         }
         binding.fab.setOnClickListener {
-            navController.navigate(R.id.addMealFragment)
+            showDatePickerDialog()
         }
     }
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
-    override fun onOverviewCurrent(isCurrent: Boolean) {
-        isOverviewCurrent = isCurrent
-        invalidateOptionsMenu()
-        if (isCurrent) {
-            val dbFormattedDate = selectedDate ?: getCurrentDayString()
-            var readableDate = dbFormattedDate.makeDateReadable()
-            if (dbFormattedDate == getCurrentDayString()) {
-                readableDate = readableDate.addTodayLabel()
-            }
-            supportActionBar?.subtitle = readableDate
-        } else {
-            supportActionBar?.subtitle = ""
+    private fun showDatePickerDialog(){
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_date_picker, null)
+        val mBuilder = AlertDialog.Builder(this)
+            .setView(mDialogView)
+            .setTitle("SELECT THE DATE")
+        val  mAlertDialog = mBuilder.show()
+        val datePicker = mDialogView.findViewById<DatePicker>(R.id.datePicker)
+        val today = Calendar.getInstance()
+        datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+            today.get(Calendar.DAY_OF_MONTH)
+        ) { view, year, month, day ->
+            val month = month + 1
+            val msg = "You Selected: $year-$month-$day"
+            Toast.makeText(this@MainActivity, msg, Toast.LENGTH_SHORT).show()
+            sharedViewModel.setNameData("$year-$month-$day")
+            mAlertDialog.dismiss()
         }
     }
+
+
+
 }
