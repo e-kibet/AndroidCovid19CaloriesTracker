@@ -44,4 +44,14 @@
         <item name="android:textColor">@color/orangeMacro</item>
         <item name="android:fontFamily">@font/baloo</item>
     </style>
+
+    <style name="tv_overview_foodname">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:textSize">@dimen/text_head</item>
+    </style>
+
+    <style name="tv_overview_foodlabel">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
 </resources>

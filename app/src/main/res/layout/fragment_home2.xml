@@ -100,7 +100,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="@{viewModel.foodTotal.carbsPercent}"
                     android:orientation="horizontal"
-                    android:background="@color/blueMacro"/>
+                    android:background="@color/dark_blue"/>
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

@@ -17,15 +17,15 @@
             app:exitAnim="@anim/animation_leave_from_top"
             app:popEnterAnim="@anim/animation_from_top"
             app:popExitAnim="@anim/animation_leave_from_bottom"
-            app:destination="@+id/homeFragment"/>
+            app:destination="@+id/home2Fragment"/>
 
     </fragment>
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.androidcovid19caloriestracker.view.fragments.HomeFragment"
+        android:id="@+id/home2Fragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.Home2Fragment"
         android:label="Calories Tracker"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home2">
 
         <action
             android:id="@+id/action_homeFragment_to_addMealFragment"
