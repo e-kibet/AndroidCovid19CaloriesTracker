@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_round_add_icon.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.18541666666666667" />
+        <entry key="app/src/main/res/drawable/search_input_style.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/font/.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/add_food_line_sheet.xml" value="0.17864583333333334" />
@@ -14,9 +16,11 @@
         <entry key="app/src/main/res/layout/fragment_edit_meal.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20104166666666667" />
         <entry key="app/src/main/res/layout/fragment_home2.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.16927083333333334" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_food_overview.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/list_item_search.xml" value="0.16927083333333334" />
         <entry key="app/src/main/res/layout/tab_layout.xml" value="0.203125" />
       </map>
     </option>
