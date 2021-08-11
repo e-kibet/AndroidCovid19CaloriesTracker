@@ -8,7 +8,6 @@ plugins {
 
 android {
     compileSdk 30
-
     defaultConfig {
         applicationId "com.example.androidcovid19caloriestracker"
         minSdk 21
@@ -21,8 +20,16 @@ android {
 
     buildTypes {
         release {
+            buildConfigField "String", "BASE_URL", "\"https://api.edamam.com/api/food-database/\""
+            buildConfigField "String", "APP_ID", "\"fe644ac9\""
+            buildConfigField "String", "APP_KEY", "\"652ca904c80725291f88f7e3a033615c\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            buildConfigField "String", "BASE_URL", "\"https://api.edamam.com/api/food-database/\""
+            buildConfigField "String", "APP_ID", "\"fe644ac9\""
+            buildConfigField "String", "APP_KEY", "\"652ca904c80725291f88f7e3a033615c\""
         }
     }
     compileOptions {

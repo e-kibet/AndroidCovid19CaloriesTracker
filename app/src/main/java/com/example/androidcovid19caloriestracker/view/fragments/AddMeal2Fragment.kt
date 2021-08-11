@@ -33,6 +33,8 @@ class AddMeal2Fragment : Fragment() {
 
         binding.viewModel = viewModel
 
+        binding.addfoodCurrentTime
+
         viewModel.navigateToOverview.observe(requireActivity(), Observer {
             if (it) {
                 this.findNavController().navigate(AddMeal2FragmentDirections.actionAddMeal2ToHome2Fragment())

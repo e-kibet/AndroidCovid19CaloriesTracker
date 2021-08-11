@@ -18,6 +18,8 @@ import com.example.androidcovid19caloriestracker.factory.OverviewViewModelFactor
 import com.example.androidcovid19caloriestracker.network.local.FoodDatabase
 import com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel
 import com.example.androidcovid19caloriestracker.viewmodel.SharedViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Home2Fragment : Fragment() {
     private lateinit var binding: FragmentHome2Binding
@@ -30,13 +32,15 @@ class Home2Fragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home2, container, false)
         binding.lifecycleOwner = this
-
-
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+
         sharedViewModel.getNameData()?.observe(requireActivity(), { item->
             Toast.makeText(requireContext(), item.toString(), Toast.LENGTH_SHORT).show()
             binding.currentDate.text = item.toString()
         })
+
+        val sdf = SimpleDateFormat("yyyy-M-dd")
+        sharedViewModel.setNameData(sdf.format(Date()).toString())
 
         binding.btnOverviewToSearch.setOnClickListener {
             if(binding.currentDate.text.toString() != getString(R.string.date_not_found)){

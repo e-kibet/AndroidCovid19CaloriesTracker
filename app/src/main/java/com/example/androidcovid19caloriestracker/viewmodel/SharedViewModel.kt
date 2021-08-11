@@ -1,5 +1,6 @@
 package com.example.androidcovid19caloriestracker.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,19 +12,13 @@ class SharedViewModel: ViewModel() {
 
     private var name: MutableLiveData<String>? = null
 
-    init {
-        viewModelScope.launch {
-            val sdf = SimpleDateFormat("yyyy-M-dd")
-            setNameData(sdf.format(Date()).toString())
-        }
-    }
-
     fun setNameData(nameData: String) {
         name?.value = nameData
     }
 
     fun getNameData(): MutableLiveData<String>? {
         if (name == null) {
+            Log.i("SharedViewModel", "SharedViewModel created! ${name}.toString()}")
             name = MutableLiveData()
         }
         return name
