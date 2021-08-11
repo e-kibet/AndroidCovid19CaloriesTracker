@@ -1,3 +1,7 @@
+/**
+ * Copyright by @evanskibet
+ */
+
 package com.example.androidcovid19caloriestracker.adapters
 
 import androidx.fragment.app.Fragment

@@ -28,6 +28,7 @@
     <string name="format_total_kcal">%,.0f kcal</string>
     <string name="format_double">%,.0f</string>
     <string name="format_percent">%d %%</string>
+    <style name="format_date">%d</style>
 
     <!--LABELS-->
     <string name="label_carbs">Carbs</string>

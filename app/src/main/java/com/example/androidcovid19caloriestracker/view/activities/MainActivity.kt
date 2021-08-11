@@ -3,6 +3,8 @@ package com.example.androidcovid19caloriestracker.view.activities
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val toolbar = binding.mainToolbar
+        toolbar.inflateMenu(R.menu.main_menu)
         setSupportActionBar(toolbar)
         sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
         val sdf = SimpleDateFormat("yyyy-M-dd")
@@ -80,11 +83,16 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return  super.onCreateOptionsMenu(menu)
+    }
+
     private fun showDatePickerDialog(){
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_date_picker, null)
         val mBuilder = AlertDialog.Builder(this)
             .setView(mDialogView)
-            .setTitle("SELECT THE DATE")
+            .setTitle("Select the Date")
         val  mAlertDialog = mBuilder.show()
         val datePicker = mDialogView.findViewById<DatePicker>(R.id.datePicker)
         val today = Calendar.getInstance()
@@ -92,9 +100,12 @@ class MainActivity : AppCompatActivity() {
             today.get(Calendar.DAY_OF_MONTH)
         ) { view, year, month, day ->
             val month = month + 1
-            val msg = "You Selected: $year-$month-$day"
+            val newMonth = if(month > 9)  month else "0${month}"
+            val newYear = if(year > 9) year else "0${year}"
+            val newDay = if(day > 9) day else "0${day}"
+            val msg = "You Selected: $newYear-$newMonth-$newDay"
             Toast.makeText(this@MainActivity, msg, Toast.LENGTH_SHORT).show()
-            sharedViewModel.setNameData("$year-$month-$day")
+            sharedViewModel.setNameData("$newYear-$newMonth-$newDay")
             mAlertDialog.dismiss()
         }
     }

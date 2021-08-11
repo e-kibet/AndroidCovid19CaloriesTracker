@@ -23,7 +23,9 @@ data class FoodModel (
 
     var kcal: Double,
 
-    var date: String?
+    var date: String,
+
+    var time: String?
 
 ) {
     @Ignore
