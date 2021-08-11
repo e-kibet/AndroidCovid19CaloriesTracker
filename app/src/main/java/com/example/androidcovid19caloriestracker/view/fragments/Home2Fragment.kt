@@ -1,5 +1,6 @@
 package com.example.androidcovid19caloriestracker.view.fragments
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,12 +35,16 @@ class Home2Fragment : Fragment() {
         binding.lifecycleOwner = this
         sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
+        val dataS = FoodDatabase.getInstance(requireNotNull(activity).application).foodDatabaseDao
+        val viewModelFactory2 = OverviewViewModelFactory(dataS,requireNotNull(activity).application)
+        viewModel = ViewModelProviders.of(this, viewModelFactory2).get(OverviewViewModel::class.java)
+
         sharedViewModel.getNameData()?.observe(requireActivity(), { item->
-            Toast.makeText(requireContext(), item.toString(), Toast.LENGTH_SHORT).show()
+            viewModel.setDateSelected(item)
             binding.currentDate.text = item.toString()
         })
 
-        val sdf = SimpleDateFormat("yyyy-M-dd")
+        val sdf = SimpleDateFormat("yyyy-MM-dd")
         sharedViewModel.setNameData(sdf.format(Date()).toString())
 
         binding.btnOverviewToSearch.setOnClickListener {

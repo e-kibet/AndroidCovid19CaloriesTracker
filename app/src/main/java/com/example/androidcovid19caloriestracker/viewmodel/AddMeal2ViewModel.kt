@@ -42,7 +42,7 @@ class AddFoodView2Model(
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
 
-    
+
     val displayCurrentCarbs = Transformations.map(currentGramsString) { gramsString ->
         val carbsPerOneGram = selectedFood.value!!.nutrients.carbs / 100
 
