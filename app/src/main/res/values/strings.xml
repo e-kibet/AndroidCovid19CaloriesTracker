@@ -46,4 +46,6 @@
 
     <!--Search-->
     <string name="food_not_found">Food not found.</string>
+
+    <string name="date_not_found">--Date Not Found--</string>
 </resources>

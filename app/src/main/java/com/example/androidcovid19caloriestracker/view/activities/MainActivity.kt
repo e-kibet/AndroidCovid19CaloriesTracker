@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val toolbar = binding.mainToolbar
         setSupportActionBar(toolbar)
-        navController = findNavController(R.id.nav_host_fragment)
-        setupActionBarWithNavController(navController)
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
         val sdf = SimpleDateFormat("yyyy-M-dd")
         sharedViewModel.setNameData(sdf.format(Date()).toString())
+        navController = findNavController(R.id.nav_host_fragment)
+        setupActionBarWithNavController(navController)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         mainViewModel.bottomNavigationVisibility.observe(this, Observer { toolVisibility ->
             binding.mainToolbar.visibility = toolVisibility
@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
                             binding.fab.show()
                             supportActionBar?.hide()
                             binding.mainToolbar.title = "Covid19 Calories Tracker"
+                        }
+                        R.id.searchFragment ->{
+                            binding.fab.hide()
                         }
                         R.id.addMealFragment ->{
                             mainViewModel.showBottomNav()

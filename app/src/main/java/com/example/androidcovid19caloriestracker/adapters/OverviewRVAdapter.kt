@@ -17,7 +17,6 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
             notifyDataSetChanged()
         }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OverviewRVAdapter.ViewHolder {
         return ViewHolder.from(parent, onBtnDeleteListener)
     }
