@@ -27,7 +27,7 @@ class AddMeal2Fragment : Fragment() {
         val food = AddMeal2FragmentArgs.fromBundle(requireArguments()).selectedFood
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao
 
-        val viewModelFactory = AddMealViewModelFactory(food, dataSource, application)
+        val viewModelFactory = AddMealViewModelFactory(food, dataSource, application, requireContext())
         val viewModel = ViewModelProviders.of(this,
             viewModelFactory).get(AddFoodView2Model::class.java)
 

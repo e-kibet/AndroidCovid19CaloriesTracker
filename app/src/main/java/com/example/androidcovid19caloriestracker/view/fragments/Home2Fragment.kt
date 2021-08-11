@@ -16,6 +16,7 @@ import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.adapters.OverviewRVAdapter
 import com.example.androidcovid19caloriestracker.databinding.FragmentHome2Binding
 import com.example.androidcovid19caloriestracker.factory.OverviewViewModelFactory
+import com.example.androidcovid19caloriestracker.helpers.PreferenceHelper
 import com.example.androidcovid19caloriestracker.network.local.FoodDatabase
 import com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel
 import com.example.androidcovid19caloriestracker.viewmodel.SharedViewModel
@@ -41,6 +42,8 @@ class Home2Fragment : Fragment() {
 
         sharedViewModel.getNameData()?.observe(requireActivity(), { item->
             viewModel.setDateSelected(item)
+            val sharedPrefs = PreferenceHelper(requireContext())
+            sharedPrefs.set(item.toString())
             binding.currentDate.text = item.toString()
         })
 
