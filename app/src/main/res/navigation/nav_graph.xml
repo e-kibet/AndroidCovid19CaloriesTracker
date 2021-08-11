@@ -67,7 +67,6 @@
         android:label="Add Meal"
         tools:layout="@layout/fragment_add_meal">
 
-
         <action
             android:id="@+id/addMealFragment"
             app:enterAnim="@anim/animation_from_bottom"

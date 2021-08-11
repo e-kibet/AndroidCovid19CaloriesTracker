@@ -1,8 +1,10 @@
 package com.example.androidcovid19caloriestracker.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.*
 import com.example.androidcovid19caloriestracker.R
+import com.example.androidcovid19caloriestracker.helpers.PreferenceHelper
 import com.example.androidcovid19caloriestracker.model.Food
 import com.example.androidcovid19caloriestracker.model.FoodModel
 import com.example.androidcovid19caloriestracker.network.local.FoodDatabaseDao
@@ -12,9 +14,12 @@ import kotlinx.coroutines.*
 class AddFoodView2Model(
     food: Food,
     val database: FoodDatabaseDao,
-    app: Application
+    app: Application,
+    context: Context?
 ) : AndroidViewModel(app) {
     private var viewModelJob = Job()
+
+    private var context = context
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
 
     private val _selectedFood = MutableLiveData<Food>()
@@ -42,7 +47,7 @@ class AddFoodView2Model(
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
 
-    
+
     val displayCurrentCarbs = Transformations.map(currentGramsString) { gramsString ->
         val carbsPerOneGram = selectedFood.value!!.nutrients.carbs / 100
 
@@ -111,6 +116,7 @@ class AddFoodView2Model(
             val kcalPerOneGram = selectedFood.value!!.nutrients.kcal / 100
             val currentGrams = currentGramsString.value!!.toDouble()
             val currentTime = currentTimeString.value!!.toString()
+            val currentDate = PreferenceHelper(context).get()
 
             val foodModel = FoodModel(
                 name = selectedFood.value?.layoutName,
@@ -119,7 +125,7 @@ class AddFoodView2Model(
                 proteins = currentGrams.times(proteinsPerOneGram),
                 fats = currentGrams.times(fatsPerOneGram),
                 kcal = currentGrams.times(kcalPerOneGram),
-                date = getCurrentDayString(),
+                date = currentDate.toString(),
                 time = currentTime
             )
 

@@ -31,9 +31,8 @@ fun Double.toKcalString(): String {
 
 @SuppressLint("SimpleDateFormat")
 fun getCurrentDayString(): String {
-    val date = Date();
-    val formatter = SimpleDateFormat("yyyy-M-dd")
-    return formatter.format(date)
+    val formatter = SimpleDateFormat("yyyy-MM-dd")
+    return formatter.format(Date())
 }
 
 fun doublesToIntOrOne(a: Double, b: Double, c: Double): Int {
