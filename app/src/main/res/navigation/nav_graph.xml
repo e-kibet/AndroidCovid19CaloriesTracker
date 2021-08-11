@@ -37,7 +37,7 @@
             app:destination="@+id/editMealFragment"/>
 
         <action
-            android:id="@+id/action_homeFragment_to_SearchFragment"
+            android:id="@+id/action_home2Fragment_to_searchFragment"
             app:enterAnim="@anim/animation_from_bottom"
             app:exitAnim="@anim/animation_leave_from_top"
             app:popEnterAnim="@anim/animation_from_top"
@@ -52,9 +52,6 @@
         tools:layout="@layout/fragment_search">
 
 
-        <argument
-            android:name="selectedFood"
-            app:argType="com.example.androidcovid19caloriestracker.model.Food"/>
         <action android:id="@+id/action_searchFragment_to_addFoodFragment"
             app:enterAnim="@anim/animation_from_bottom"
             app:exitAnim="@anim/animation_leave_from_top"
@@ -70,6 +67,9 @@
         android:label="Add Meal"
         tools:layout="@layout/fragment_add_meal">
 
+        <argument
+            android:name="selectedFood"
+            app:argType="com.example.androidcovid19caloriestracker.model.Food"/>
         <action
             android:id="@+id/addMealFragment"
             app:enterAnim="@anim/animation_from_bottom"

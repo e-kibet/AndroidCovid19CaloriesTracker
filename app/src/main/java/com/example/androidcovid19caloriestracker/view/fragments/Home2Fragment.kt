@@ -39,7 +39,12 @@ class Home2Fragment : Fragment() {
         })
 
         binding.btnOverviewToSearch.setOnClickListener {
-            Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_SearchFragment)
+            if(binding.currentDate.text.toString() != getString(R.string.date_not_found)){
+                Navigation.createNavigateOnClickListener(R.id.action_home2Fragment_to_searchFragment, null).onClick(it)
+            }else{
+                Toast.makeText(requireContext(), "Date not found. Please select date", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         val application = requireActivity().application

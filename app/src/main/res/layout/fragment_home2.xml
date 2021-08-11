@@ -22,7 +22,7 @@
                 android:id="@+id/currentDate"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/baloo"
-                android:text="--Empty Date--"
+                android:text="@string/date_not_found"
                 android:textAlignment="center"
                 android:textSize="16dp"
                 android:layout_height="wrap_content"
