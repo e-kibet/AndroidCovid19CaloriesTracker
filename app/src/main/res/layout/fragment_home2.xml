@@ -297,7 +297,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:fontFamily="@font/capriola"
-                        android:textSize="18dp"
+                        android:textSize="14dp"
                         android:textColor="@color/dark_blue"/>
 
                     <ImageView

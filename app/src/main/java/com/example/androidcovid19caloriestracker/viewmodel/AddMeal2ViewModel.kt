@@ -23,6 +23,8 @@ class AddFoodView2Model(
 
     val currentGramsString = MutableLiveData<String>()
 
+    val currentTimeString = MutableLiveData<String>()
+
     // Navigation Back to Overview
     val navigateToOverview = MutableLiveData<Boolean>()
 
@@ -31,6 +33,7 @@ class AddFoodView2Model(
         navigateToOverview.value = false
         _selectedFood.value = food
         currentGramsString.value = "100"
+        currentTimeString.value = "10:00:00"
     }
 
     /** UI's LiveData */
@@ -39,9 +42,7 @@ class AddFoodView2Model(
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
 
-
-
-
+    
     val displayCurrentCarbs = Transformations.map(currentGramsString) { gramsString ->
         val carbsPerOneGram = selectedFood.value!!.nutrients.carbs / 100
 
@@ -108,8 +109,8 @@ class AddFoodView2Model(
             val proteinsPerOneGram = selectedFood.value!!.nutrients.protein / 100
             val fatsPerOneGram = selectedFood.value!!.nutrients.fat / 100
             val kcalPerOneGram = selectedFood.value!!.nutrients.kcal / 100
-
             val currentGrams = currentGramsString.value!!.toDouble()
+            val currentTime = currentTimeString.value!!.toString()
 
             val foodModel = FoodModel(
                 name = selectedFood.value?.layoutName,
@@ -119,7 +120,7 @@ class AddFoodView2Model(
                 fats = currentGrams.times(fatsPerOneGram),
                 kcal = currentGrams.times(kcalPerOneGram),
                 date = getCurrentDayString(),
-                time = "10:0:00"
+                time = currentTime
             )
 
             insert(foodModel)

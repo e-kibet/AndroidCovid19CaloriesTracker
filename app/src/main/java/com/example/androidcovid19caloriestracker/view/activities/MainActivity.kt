@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                             mainViewModel.showBottomNav()
                             binding.fab.show()
                             supportActionBar?.hide()
-                            binding.mainToolbar.title = "Covid19 Calories Tracker"
+                            binding.mainToolbar.title = "Calories Tracker"
                         }
                         R.id.searchFragment ->{
                             binding.fab.hide()
