@@ -54,4 +54,28 @@
         <item name="android:textSize">@dimen/text_subhead</item>
         <item name="android:textColor">@color/grey</item>
     </style>
+
+    <style name="addfood_name">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="addfood_desc">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="addfood_label_total">
+        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
+
+    <style name="addfood_label_enter">
+        <item name="android:textSize">@dimen/text_head</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/baloo</item>
+    </style>
 </resources>

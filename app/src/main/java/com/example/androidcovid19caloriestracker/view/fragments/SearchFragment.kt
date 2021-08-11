@@ -52,7 +52,7 @@ class SearchFragment : Fragment() {
         // After navigate, set the selectedFood to null so that ViewModel is rdy for another navigation
         viewModel.navigateToSelectedFood.observe(requireActivity(), Observer {
             if (it != null) {
-                this.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToAddFoodFragment(it))
+                this.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToAddFood2Fragment(it))
                 // tell the viewModel we've mafe the navigate call
                 viewModel.displayAddFoodIsComplete()
             }

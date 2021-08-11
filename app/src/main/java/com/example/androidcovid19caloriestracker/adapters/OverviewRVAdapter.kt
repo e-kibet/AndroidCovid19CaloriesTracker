@@ -27,13 +27,10 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
         val item = data[position]
         holder.bind(item)
         holder.click(item)
-
-
     }
 
 
-    class ViewHolder constructor(val binding: ItemFoodOverviewBinding, val onBtnDeleteListener: OnBtnDeleteListener)
-        : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder constructor(val binding: ItemFoodOverviewBinding, val onBtnDeleteListener: OnBtnDeleteListener) : RecyclerView.ViewHolder(binding.root) {
 
         companion object {
             fun from(parent: ViewGroup, onBtnDeleteListener: OnBtnDeleteListener): ViewHolder {
