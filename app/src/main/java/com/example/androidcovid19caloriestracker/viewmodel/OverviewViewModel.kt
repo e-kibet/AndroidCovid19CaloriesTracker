@@ -53,7 +53,8 @@ class OverviewViewModel(
             proteins = proteinsTotal,
             fats = fatsTotal,
             kcal = kcalTotal,
-            date = ""
+            date = "",
+            time = ""
         )
 
     }

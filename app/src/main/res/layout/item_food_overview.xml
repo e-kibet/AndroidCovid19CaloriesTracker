@@ -40,7 +40,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="100 g"
-                android:layout_marginStart="@dimen/default_margin_half"
+                android:padding="2dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_item_overview_name"
+                app:layout_constraintStart_toEndOf="@id/tv_item_overview_name"
+                style="@style/tv_overview_foodlabel"/>
+
+            <TextView
+                android:id="@+id/tv_item_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="null"
+                android:padding="2dp"
                 app:layout_constraintBaseline_toBaselineOf="@id/tv_item_overview_name"
                 app:layout_constraintStart_toEndOf="@id/tv_item_overview_name"
                 style="@style/tv_overview_foodlabel"/>
@@ -68,9 +78,11 @@
             <TextView
                 android:id="@+id/tv_item_overview_carbs"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 tools:text="50 g"
                 android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:textColor="@color/blueMacro"
                 android:layout_marginStart="@dimen/default_margin_half"
                 app:layout_constraintStart_toEndOf="@id/tv_item_overview_kcal"
@@ -80,7 +92,9 @@
             <TextView
                 android:id="@+id/tv_item_overview_proteins"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
                 tools:text="50 g"
                 android:layout_weight="1"
                 android:textColor="@color/greenMacro"
@@ -92,7 +106,9 @@
             <TextView
                 android:id="@+id/tv_item_overview_fats"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
                 tools:text="50 g"
                 android:layout_weight="1"
                 android:textColor="@color/orangeMacro"
@@ -104,7 +120,7 @@
             <ImageButton
                 android:id="@+id/btn_delete_item_overview"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/ic_baseline_delete_forever_24"
                 android:background="@null"

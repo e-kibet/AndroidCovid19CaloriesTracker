@@ -24,12 +24,10 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface FoodDatabaseApiService {
-
     @GET("parser?")
     fun getSpecificFood(@Query("ingr") food: String,
                         @Query("app_id") appId: String = APP_ID,
-                        @Query("app_key") appKey: String = APP_KEY):
-            Deferred<ResponseJson>
+                        @Query("app_key") appKey: String = APP_KEY): Deferred<ResponseJson>
 }
 
 object FoodDatabaseApi {

@@ -1,3 +1,7 @@
+/**
+ * Copyright
+ */
+
 package com.example.androidcovid19caloriestracker.adapters
 
 import android.view.LayoutInflater

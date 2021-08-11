@@ -55,7 +55,7 @@
     </style>
 
     <style name="tv_overview_foodlabel">
-        <item name="android:textSize">@dimen/text_subhead</item>
+        <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/grey</item>
     </style>
 
@@ -81,6 +81,10 @@
         <item name="android:textSize">@dimen/text_head</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">@font/capriola</item>
+    </style>
+
+    <style name="fab_style">
+        <item name="backgroundColor">@color/white</item>
     </style>
 
 

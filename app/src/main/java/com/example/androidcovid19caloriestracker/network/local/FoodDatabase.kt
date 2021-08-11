@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.androidcovid19caloriestracker.model.FoodModel
 
-@Database(entities = [FoodModel::class], version = 3, exportSchema = false)
+@Database(entities = [FoodModel::class], version = 4, exportSchema = false)
 abstract class FoodDatabase : RoomDatabase() {
 
     abstract val foodDatabaseDao: FoodDatabaseDao

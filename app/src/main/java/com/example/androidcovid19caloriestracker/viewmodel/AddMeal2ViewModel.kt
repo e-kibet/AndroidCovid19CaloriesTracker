@@ -14,17 +14,12 @@ class AddFoodView2Model(
     val database: FoodDatabaseDao,
     app: Application
 ) : AndroidViewModel(app) {
-
-    /** COROUTINES */
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
 
-
-    /** BINDABLES */
     private val _selectedFood = MutableLiveData<Food>()
 
-    val selectedFood: LiveData<Food>
-        get() = _selectedFood
+    val selectedFood: LiveData<Food> get() = _selectedFood
 
     val currentGramsString = MutableLiveData<String>()
 
@@ -43,6 +38,8 @@ class AddFoodView2Model(
     val displayKcalPer100G = Transformations.map(selectedFood) { food ->
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
+
+
 
 
     val displayCurrentCarbs = Transformations.map(currentGramsString) { gramsString ->
@@ -121,7 +118,8 @@ class AddFoodView2Model(
                 proteins = currentGrams.times(proteinsPerOneGram),
                 fats = currentGrams.times(fatsPerOneGram),
                 kcal = currentGrams.times(kcalPerOneGram),
-                date = getCurrentDayString()
+                date = getCurrentDayString(),
+                time = "10:0:00"
             )
 
             insert(foodModel)

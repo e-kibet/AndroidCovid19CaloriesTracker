@@ -24,7 +24,8 @@
                 android:fontFamily="@font/capriola"
                 android:text="@string/date_not_found"
                 android:textAlignment="center"
-                android:textSize="16dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="11dp"
                 android:layout_height="wrap_content"
                 android:padding="10dp"/>
 

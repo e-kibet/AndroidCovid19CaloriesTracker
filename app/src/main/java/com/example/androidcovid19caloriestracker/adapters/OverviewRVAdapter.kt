@@ -1,3 +1,7 @@
+/**
+ * Copyright by @evanskibet
+ */
+
 package com.example.androidcovid19caloriestracker.adapters
 
 import android.view.LayoutInflater
@@ -47,6 +51,7 @@ class OverviewRVAdapter(val onBtnDeleteListener: OnBtnDeleteListener) : Recycler
             binding.tvItemOverviewCarbs.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.carbs)
             binding.tvItemOverviewProteins.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.proteins)
             binding.tvItemOverviewFats.text = CalorieCounterApplication.instance.getString(R.string.format_grams, item.fats)
+            binding.tvItemDate.text = item.date + " "+item.time
         }
 
         fun click(item: FoodModel) {

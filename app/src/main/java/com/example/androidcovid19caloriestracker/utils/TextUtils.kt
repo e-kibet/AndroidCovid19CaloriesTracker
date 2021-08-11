@@ -32,7 +32,7 @@ fun Double.toKcalString(): String {
 @SuppressLint("SimpleDateFormat")
 fun getCurrentDayString(): String {
     val date = Date();
-    val formatter = SimpleDateFormat("MMM-dd-yyyy")
+    val formatter = SimpleDateFormat("yyyy-M-dd")
     return formatter.format(date)
 }
 
