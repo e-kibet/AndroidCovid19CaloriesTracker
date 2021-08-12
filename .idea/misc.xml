@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_bedtime_24.xml" value="0.18072916666666666" />
         <entry key="app/src/main/res/drawable/ic_round_add_icon.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/drawable/ic_weight_scale.xml" value="0.19739583333333333" />

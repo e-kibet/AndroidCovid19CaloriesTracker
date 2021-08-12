@@ -1,6 +1,6 @@
-/*
+/**
  * *
- *  * Created by dev on 8/12/21, 1:18 AM
+ *  * Created by evanskibet on 8/12/21, 1:18 AM
  *  * Copyright (c) 2021 . All rights reserved.
  *  * Last modified 8/12/21, 1:18 AM
  *
@@ -15,7 +15,7 @@ import android.content.SharedPreferences
 
 
 class PreferenceHelper(context: Context?) {
-    private val mPrefs: SharedPreferences
+    private val mPrefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
     private val PREF_Key = "Key"
     fun get() = mPrefs.getString(PREF_Key, "")
 
@@ -25,7 +25,4 @@ class PreferenceHelper(context: Context?) {
             mEditor.apply()
         }
 
-    init {
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-    }
 }

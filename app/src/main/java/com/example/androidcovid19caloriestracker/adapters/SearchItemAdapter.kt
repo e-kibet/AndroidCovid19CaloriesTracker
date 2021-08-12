@@ -12,14 +12,12 @@ import com.example.androidcovid19caloriestracker.model.Food
 import com.example.androidcovid19caloriestracker.utils.foodNameToShortString
 import com.example.androidcovid19caloriestracker.utils.toKcalString
 
-class SearchItemAdapter(val onClickListener: OnClickListener) : RecyclerView.Adapter<SearchItemAdapter.ViewHolder>() {
-
+class SearchItemAdapter(private val onClickListener: OnClickListener) : RecyclerView.Adapter<SearchItemAdapter.ViewHolder>() {
     var data = listOf<Food>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemAdapter.ViewHolder {
         return ViewHolder.from(parent)
@@ -40,8 +38,6 @@ class SearchItemAdapter(val onClickListener: OnClickListener) : RecyclerView.Ada
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-//                val view = layoutInflater
-//                    .inflate(R.layout.list_item_search, parent, false)
                 val binding = ListItemSearchBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
@@ -49,11 +45,7 @@ class SearchItemAdapter(val onClickListener: OnClickListener) : RecyclerView.Ada
         }
 
         fun bind(item: Food) {
-//            val res = binding.context.resources
-
-//            binding.searchItemName.text = convertFoodNameToShortString(item.label)
             binding.searchItemName.text = item.label.foodNameToShortString()
-//            binding.searchItemKcal.text = convertFoodKcalDoubletoString(item.nutrients.kcal)
             binding.searchItemKcal.text = item.nutrients.kcal.toKcalString()
         }
 

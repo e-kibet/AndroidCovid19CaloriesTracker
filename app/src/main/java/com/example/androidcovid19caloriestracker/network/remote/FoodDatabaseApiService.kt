@@ -15,7 +15,7 @@ private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-private val retrofit = Retrofit.Builder()
+val retrofit: Retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BuildConfig.BASE_URL)
@@ -28,6 +28,3 @@ interface FoodDatabaseApiService {
                         @Query("app_key") appKey: String = BuildConfig.APP_KEY): Deferred<ResponseJson>
 }
 
-object FoodDatabaseApi {
-    val retrofitService: FoodDatabaseApiService by lazy { retrofit.create(FoodDatabaseApiService::class.java) }
-}

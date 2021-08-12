@@ -26,17 +26,9 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate<FragmentSearchBinding>(inflater, R.layout.fragment_search, container, false)
-
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         binding.lifecycleOwner = this
-
-        // Giving the binding access to the viewModel
         binding.viewModel = viewModel
-
-        // Set the adapter with clickHandler lambad that tells the viewModel when a item is clicked
         val adapter = SearchItemAdapter(SearchItemAdapter.OnClickListener {
             viewModel.displayAddFood(it)
         })
@@ -47,18 +39,13 @@ class SearchFragment : Fragment() {
                 adapter.data = it
             }
         })
-
-        // Observe navigateToSelectedFood data and navigate if it isn't null
-        // After navigate, set the selectedFood to null so that ViewModel is rdy for another navigation
         viewModel.navigateToSelectedFood.observe(requireActivity(), Observer {
             if (it != null) {
                 this.findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToAddFood2Fragment(it))
-                // tell the viewModel we've mafe the navigate call
                 viewModel.displayAddFoodIsComplete()
             }
         })
 
-        // ProgressBar's Visibility
         viewModel.searchInProgress.observe(requireActivity(), Observer {
             if (it == false) {
                 binding.searchProgressbar.visibility = View.INVISIBLE
@@ -67,7 +54,6 @@ class SearchFragment : Fragment() {
             }
         })
 
-        // Food Not Found TV visibility
         viewModel.showFoodNotFound.observe(requireActivity(), Observer {
             if (it == false) {
                 binding.searchRecyclerview.visibility = View.VISIBLE

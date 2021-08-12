@@ -21,8 +21,8 @@
 
     <!--TEXT-->
     <color name="grey">#9D9D9D</color>
-
     <color name="toolbar">#ECECEC</color>
-
     <color name="bg_color">#fafafa</color>
+
+    <color name="color_on_background">#4C4C4C</color>
 </resources>

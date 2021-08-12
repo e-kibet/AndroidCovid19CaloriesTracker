@@ -18,6 +18,6 @@ class AddMealViewModelFactory(
         if (modelClass.isAssignableFrom(AddFoodView2Model::class.java)) {
             return AddFoodView2Model(food, dataSource,application, context) as T
         }
-        throw IllegalArgumentException("Unknown ViewModel class")
+        throw IllegalArgumentException("Error occured, Unknown ViewModel class")
     }
 }

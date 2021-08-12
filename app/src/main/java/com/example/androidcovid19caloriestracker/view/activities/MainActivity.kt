@@ -1,14 +1,17 @@
 package com.example.androidcovid19caloriestracker.view.activities
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -110,6 +113,21 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_day_night_mode -> {
+                val mode =
+                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                        Configuration.UI_MODE_NIGHT_NO
+                    ) {
+                        AppCompatDelegate.MODE_NIGHT_YES
+                    } else {
+                        AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
+                    }
+                AppCompatDelegate.setDefaultNightMode(mode)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
