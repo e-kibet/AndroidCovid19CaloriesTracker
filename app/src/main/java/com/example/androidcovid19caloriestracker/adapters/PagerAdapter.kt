@@ -1,5 +1,7 @@
 /**
  * Copyright by @evanskibet
+ * OLD VERSION OF THE PROJECT
+ * last updated on 10/08/2021
  */
 
 package com.example.androidcovid19caloriestracker.adapters

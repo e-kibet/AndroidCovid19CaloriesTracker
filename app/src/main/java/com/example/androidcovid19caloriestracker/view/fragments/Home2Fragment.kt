@@ -1,6 +1,5 @@
 package com.example.androidcovid19caloriestracker.view.fragments
 
-import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,19 +12,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.androidcovid19caloriestracker.R
-import com.example.androidcovid19caloriestracker.adapters.OverviewRVAdapter
+import com.example.androidcovid19caloriestracker.adapters.Home2RVAdapter
 import com.example.androidcovid19caloriestracker.databinding.FragmentHome2Binding
 import com.example.androidcovid19caloriestracker.factory.OverviewViewModelFactory
 import com.example.androidcovid19caloriestracker.helpers.PreferenceHelper
 import com.example.androidcovid19caloriestracker.network.local.FoodDatabase
-import com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel
+import com.example.androidcovid19caloriestracker.viewmodel.Home2ViewModel
 import com.example.androidcovid19caloriestracker.viewmodel.SharedViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Home2Fragment : Fragment() {
     private lateinit var binding: FragmentHome2Binding
-    private lateinit var viewModel: OverviewViewModel
+    private lateinit var viewModel: Home2ViewModel
     private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(
@@ -38,7 +37,7 @@ class Home2Fragment : Fragment() {
 
         val dataS = FoodDatabase.getInstance(requireNotNull(activity).application).foodDatabaseDao
         val viewModelFactory2 = OverviewViewModelFactory(dataS,requireNotNull(activity).application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory2).get(OverviewViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory2).get(Home2ViewModel::class.java)
 
         sharedViewModel.getNameData()?.observe(requireActivity(), { item->
             viewModel.setDateSelected(item)
@@ -56,23 +55,28 @@ class Home2Fragment : Fragment() {
             }else{
                 Toast.makeText(requireContext(), "Date not found. Please select date", Toast.LENGTH_SHORT).show()
             }
-
         }
 
         val application = requireActivity().application
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao
         val viewModelFactory = OverviewViewModelFactory(dataSource, application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(OverviewViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(Home2ViewModel::class.java)
         binding.viewModel = viewModel
-        val adapter = OverviewRVAdapter(OverviewRVAdapter.OnBtnDeleteListener {
+        val adapter = Home2RVAdapter(Home2RVAdapter.OnBtnDeleteListener {
             viewModel.onDeleteChoosedFood(it)
         })
-
         binding.rvOverview.adapter = adapter
 
         viewModel.foods.observe(viewLifecycleOwner, Observer {
             it?.let {
-                adapter.data = it
+                if(it.isNotEmpty()){
+                    binding.emptyList.visibility = View.GONE
+                    binding.rvOverview.visibility = View.VISIBLE
+                    adapter.data = it
+                }else{
+                    binding.rvOverview.visibility = View.GONE
+                    binding.emptyList.visibility  = View.VISIBLE
+                }
             }
         })
         return binding.root

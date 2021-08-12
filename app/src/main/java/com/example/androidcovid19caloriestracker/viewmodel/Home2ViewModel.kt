@@ -10,15 +10,14 @@ import com.example.androidcovid19caloriestracker.network.local.FoodDatabaseDao
 import com.example.androidcovid19caloriestracker.utils.getCurrentDayString
 import kotlinx.coroutines.*
 
-class OverviewViewModel(
-    val database: FoodDatabaseDao,
+class Home2ViewModel(
+    private val database: FoodDatabaseDao,
     app: Application
 ) : AndroidViewModel(app) {
 
     /** COROUTINES */
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
-
 
     var dateSelected = MutableLiveData(getCurrentDayString())
 

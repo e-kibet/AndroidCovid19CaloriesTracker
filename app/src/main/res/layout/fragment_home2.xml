@@ -9,7 +9,7 @@
 
     <data>
         <variable name="viewModel"
-            type="com.example.androidcovid19caloriestracker.viewmodel.OverviewViewModel"/>
+            type="com.example.androidcovid19caloriestracker.viewmodel.Home2ViewModel"/>
     </data>
 
         <LinearLayout
@@ -319,6 +319,25 @@
                 android:layout_marginTop="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/lly_all_foods" />
+
+            <LinearLayout
+                android:id="@+id/empty_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/lly_all_foods">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/capriola"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:layout_height="wrap_content"
+                    android:text="Food list is not found"/>
+            </LinearLayout>
 
 
         </LinearLayout>
