@@ -32,7 +32,7 @@
                 android:fontFamily="@font/capriola"
                 android:drawableLeft="@drawable/ic_search_black_24dp"
                 android:background="@drawable/search_input_style"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:drawablePadding="8dp"
                 android:textSize="14dp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +41,7 @@
                 android:text="@={viewModel.word}"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_search"/>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_search"
                 android:text="Search"
@@ -50,11 +51,14 @@
                 android:backgroundTint="@color/dark_blue"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:onClick="@{ () -> viewModel.getSearchFoodResponse()}"
-                app:cornerRadius="15dp"
-                android:textSize="15dp"
+                app:cornerRadius="2dp"
+                android:textAllCaps="false"
+                android:textSize="14dp"
+                app:strokeColor="@color/dark_blue"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -66,8 +70,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <ProgressBar
             android:visibility="visible"
@@ -80,6 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cly_search_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:indeterminateTint="@color/dark_blue"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView

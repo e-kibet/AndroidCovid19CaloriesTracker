@@ -26,17 +26,11 @@ import com.google.android.material.timepicker.TimeFormat
 
 
 class AddMealFragment : Fragment() {
-
     private lateinit var binding: FragmentAddMealBinding
-
     private lateinit var barcodeDetector:BarcodeDetector
-
     private lateinit var cameraSource: CameraSource
-
     private var DAY_OF_WEEK = arrayOf("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-
     private val requestCodeCameraPermission = 1001
-
     private lateinit var addMealViewModel:AddMealViewModel
 
     @SuppressLint("SetTextI18n")

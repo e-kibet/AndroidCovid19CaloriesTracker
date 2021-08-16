@@ -50,4 +50,6 @@
     <string name="food_not_found">Food not found.</string>
 
     <string name="date_not_found">--Date Not Found--</string>
+
+    <string name="food_list_not_found">Food list is not found</string>
 </resources>

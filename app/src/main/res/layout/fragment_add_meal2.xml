@@ -123,7 +123,6 @@
             app:layout_constraintStart_toStartOf="@id/guid_add_food_start"
             app:layout_constraintEnd_toStartOf="@id/guid_add_food_end">
 
-            <!--CARBS-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -289,8 +288,7 @@
                 android:layout_weight="1.8"
                 android:text="Enter serving in grams"
                 android:gravity="center_vertical"
-                style="@style/addfood_label_enter"
-                />
+                style="@style/addfood_label_enter" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -377,6 +375,7 @@
             android:onClick="@{() -> viewModel.onAddFoodSave()}"
             android:padding="10dp"
             app:cornerRadius="16dp"
+            android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@id/lly_enter_time"
             app:layout_constraintStart_toStartOf="@id/guid_add_food_start"
             app:layout_constraintEnd_toStartOf="@id/guid_add_food_end"

@@ -23,16 +23,12 @@ class AddMeal2Fragment : Fragment() {
         val application = requireNotNull(activity).application
         val binding = DataBindingUtil.inflate<FragmentAddMeal2Binding>(inflater, R.layout.fragment_add_meal2, container, false)
         binding.lifecycleOwner = this
-
         val food = AddMeal2FragmentArgs.fromBundle(requireArguments()).selectedFood
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao
-
         val viewModelFactory = AddMealViewModelFactory(food, dataSource, application, requireContext())
         val viewModel = ViewModelProviders.of(this,
             viewModelFactory).get(AddFoodView2Model::class.java)
-
         binding.viewModel = viewModel
-
         binding.addfoodCurrentTime
 
         viewModel.navigateToOverview.observe(requireActivity(), Observer {
@@ -40,10 +36,6 @@ class AddMeal2Fragment : Fragment() {
                 this.findNavController().navigate(AddMeal2FragmentDirections.actionAddMeal2ToHome2Fragment())
             }
         })
-
-
-
-
         return binding.root
     }
 
