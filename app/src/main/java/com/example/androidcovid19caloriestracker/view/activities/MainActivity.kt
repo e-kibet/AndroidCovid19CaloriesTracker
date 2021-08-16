@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                         R.id.home2Fragment -> {
                             mainViewModel.showBottomNav()
                             binding.fab.show()
-                            supportActionBar?.hide()
+                            supportActionBar?.setDisplayHomeAsUpEnabled(false)
                             binding.mainToolbar.title = "Calories Tracker"
                         }
                         R.id.searchFragment ->{
