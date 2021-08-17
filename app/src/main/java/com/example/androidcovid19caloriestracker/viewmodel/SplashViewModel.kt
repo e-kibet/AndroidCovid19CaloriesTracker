@@ -18,7 +18,7 @@ class SplashViewModel(
             ready?.value = value
         }, 2000)
     }
-    
+
     fun getSplashTimeout(): MutableLiveData<Boolean>?{
         if(ready == null){
             ready = MutableLiveData()
