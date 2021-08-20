@@ -16,8 +16,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.databinding.ActivityMainBinding
 import com.example.androidcovid19caloriestracker.viewmodel.MainViewModel
@@ -25,7 +28,10 @@ import com.example.androidcovid19caloriestracker.viewmodel.SharedViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+
+
+
+class MainActivity : AppCompatActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback{
     lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
@@ -68,6 +74,10 @@ class MainActivity : AppCompatActivity() {
                         }
                         R.id.searchFragment ->{
                             binding.fab.hide()
+                        }
+                        R.id.settingsFragment -> {
+                            binding.fab.hide()
+                            binding.mainToolbar.title = "Settings"
                         }
                         R.id.addMealFragment ->{
                             mainViewModel.showBottomNav()
@@ -120,7 +130,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_day_night_mode -> {
                 val mode =
-                    if (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK== Configuration.UI_MODE_NIGHT_NO) {
+                    if (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_NO) {
                         AppCompatDelegate.MODE_NIGHT_YES
                     } else {
                         AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
@@ -128,7 +138,22 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(mode)
                 true
             }
+            R.id.action_settings -> {
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.settingsFragment);
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onPreferenceStartFragment(
+        caller: PreferenceFragmentCompat?,
+        pref: Preference?
+    ): Boolean {
+        val navController = Navigation.findNavController(this@MainActivity, R.id.nav_host_fragment)
+        if(pref?.key.equals("settingsFragment")){
+            navController.navigate(R.id.settingsFragment);
+        }
+        return true
     }
 }
