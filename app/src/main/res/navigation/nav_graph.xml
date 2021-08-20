@@ -40,6 +40,14 @@
             app:exitAnim="@anim/animation_leave_from_top"
             app:popEnterAnim="@anim/animation_from_top"
             app:popExitAnim="@anim/animation_leave_from_bottom" />
+
+        <action
+            android:id="@+id/action_home2Fragment_to_scanFragment"
+            app:destination="@+id/scanFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom" />
     </fragment>
 
     <fragment
@@ -49,6 +57,21 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_addFood2Fragment"
+            app:destination="@id/addMeal2Fragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.ScanFragment"
+        android:label="@string/scan_food"
+        tools:layout="@layout/fragment_scan">
+        <action
+            android:id="@+id/action_scanFragment_to_addFood2Fragment"
             app:destination="@id/addMeal2Fragment"
             app:enterAnim="@anim/animation_from_bottom"
             app:exitAnim="@anim/animation_leave_from_top"
