@@ -93,12 +93,6 @@ class Home2ViewModel(
         }
     }
 
-    fun onDeleteAll() {
-        uiScope.launch {
-            deleteAll()
-        }
-    }
-
     private suspend fun deleteFood(foodModel: FoodModel) {
         withContext(Dispatchers.IO) {
             database.deleteFood(foodModel)
@@ -110,8 +104,6 @@ class Home2ViewModel(
             deleteFood(foodModel)
         }
     }
-
-
 
     override fun onCleared() {
         super.onCleared()

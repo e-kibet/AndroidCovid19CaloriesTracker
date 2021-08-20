@@ -24,7 +24,6 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
 import com.google.android.material.timepicker.TimeFormat
 
-
 class AddMealFragment : Fragment() {
     private lateinit var binding: FragmentAddMealBinding
     private lateinit var barcodeDetector:BarcodeDetector
@@ -160,7 +159,6 @@ class AddMealFragment : Fragment() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if(requestCode == requestCodeCameraPermission && grantResults.isNotEmpty()) {
             if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 showBottomSheetDialog()

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.androidcovid19caloriestracker.R
@@ -26,7 +27,7 @@ class AddMeal2Fragment : Fragment() {
         val food = AddMeal2FragmentArgs.fromBundle(requireArguments()).selectedFood
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao
         val viewModelFactory = AddMealViewModelFactory(food, dataSource, application, requireContext())
-        val viewModel = ViewModelProviders.of(this,
+        val viewModel = ViewModelProvider(this,
             viewModelFactory).get(AddFoodView2Model::class.java)
         binding.viewModel = viewModel
         binding.addfoodCurrentTime

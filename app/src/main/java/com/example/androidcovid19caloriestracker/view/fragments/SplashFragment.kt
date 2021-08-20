@@ -1,7 +1,6 @@
 package com.example.androidcovid19caloriestracker.view.fragments
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +28,7 @@ class SplashFragment : Fragment() {
                 findNavController().navigate(R.id.home2Fragment, null)
             }
         })
-
         splashViewModel.setSplashTimeout(true)
-
         return binding.root
     }
 }
