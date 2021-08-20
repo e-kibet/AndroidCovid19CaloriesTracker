@@ -14,9 +14,9 @@ data class Nutrients (
     @Json(name = "FIBTG") val fiber: Double = 0.0
 ) : Parcelable {
 
-    val totalNutrients = (protein + fat + carbs).roundToInt()
-    val carbsPercent = (100 * carbs.roundToInt()) / totalNutrients
-    val proteinPercent = (100 * protein.roundToInt()) / totalNutrients
-    val fatPercent = (100 * fat.roundToInt()) / totalNutrients
+    private val totalNutrients = (protein + fat + carbs).roundToInt()
+    val carbsPercent = 100 * carbs.roundToInt() / totalNutrients
+    val proteinPercent = 100 * protein.roundToInt() / totalNutrients
+    val fatPercent = 100 * fat.roundToInt() / totalNutrients
     val sumPercent = carbsPercent + proteinPercent + fatPercent
 }

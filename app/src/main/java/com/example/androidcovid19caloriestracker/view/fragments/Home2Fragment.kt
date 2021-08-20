@@ -45,7 +45,7 @@ class Home2Fragment : Fragment() {
 
         val dataS = FoodDatabase.getInstance(requireNotNull(activity).application).foodDatabaseDao
         val viewModelFactory2 = OverviewViewModelFactory(dataS,requireNotNull(activity).application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory2).get(Home2ViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory2).get(Home2ViewModel::class.java)
 
         sharedViewModel.getNameData()?.observe(requireActivity(), { item->
             viewModel.setDateSelected(item)
@@ -68,7 +68,7 @@ class Home2Fragment : Fragment() {
         val application = requireActivity().application
         val dataSource = FoodDatabase.getInstance(application).foodDatabaseDao
         val viewModelFactory = OverviewViewModelFactory(dataSource, application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(Home2ViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(Home2ViewModel::class.java)
         binding.viewModel = viewModel
         val adapter = Home2RVAdapter(Home2RVAdapter.OnBtnDeleteListener {
             viewModel.onDeleteChoosedFood(it)

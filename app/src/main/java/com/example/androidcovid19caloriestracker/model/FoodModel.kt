@@ -32,13 +32,13 @@ data class FoodModel (
     val totalNutrients: Int = doublesToIntOrOne(carbs, proteins, fats)
 
     @Ignore
-    val carbsPercent: Int = (100 * carbs.roundToInt() ) / totalNutrients
+    val carbsPercent: Int = 100 * carbs.roundToInt()  / totalNutrients
 
     @Ignore
-    val proteinPercent: Int = (100 * proteins.roundToInt()) / totalNutrients
+    val proteinPercent: Int = 100 * proteins.roundToInt() / totalNutrients
 
     @Ignore
-    val fatPercent: Int = (100 * fats.roundToInt()) / totalNutrients
+    val fatPercent: Int = 100 * fats.roundToInt() / totalNutrients
 
     @Ignore
     val sumPercent: Int = carbsPercent + proteinPercent + fatPercent

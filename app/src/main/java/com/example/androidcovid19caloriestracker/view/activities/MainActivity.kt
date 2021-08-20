@@ -117,9 +117,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_day_night_mode -> {
                 val mode =
-                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
-                        Configuration.UI_MODE_NIGHT_NO
-                    ) {
+                    if (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK== Configuration.UI_MODE_NIGHT_NO) {
                         AppCompatDelegate.MODE_NIGHT_YES
                     } else {
                         AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY

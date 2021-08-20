@@ -4,6 +4,11 @@ AndroidCovid19 Calories App is an application for tracking the number of calorie
 
 It is written 100% in Kotlin with both UI and Unit tests
 
+
+
+[![CodeFactor](https://www.codefactor.io/repository/github/e-kibet/androidcovid19caloriestracker/badge)](https://www.codefactor.io/repository/github/e-kibet/androidcovid19caloriestracker)
+
+
 ## Languages, libraries and tools used
 
 * [Kotlin](https://kotlinlang.org/)
@@ -18,3 +23,4 @@ It is written 100% in Kotlin with both UI and Unit tests
 * [Mockito](http://site.mockito.org/)
 * [Espresso](https://developer.android.com/training/testing/espresso/index.html)
 * [AndroidPlot](https://github.com/halfhp/androidplot)
+

@@ -1,25 +1,24 @@
 package com.example.androidcovid19caloriestracker.view.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.adapters.SearchItemAdapter
 import com.example.androidcovid19caloriestracker.databinding.FragmentSearchBinding
 import com.example.androidcovid19caloriestracker.viewmodel.SearchViewModel
 
-
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
 
     private val viewModel: SearchViewModel by lazy {
-        ViewModelProviders.of(this).get(SearchViewModel::class.java)
+        ViewModelProvider(this).get(SearchViewModel::class.java)
     }
 
     override fun onCreateView(

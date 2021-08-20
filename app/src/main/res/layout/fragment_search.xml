@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cly_search_bar"
             android:layout_width="match_parent"
@@ -44,7 +45,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_search"
-                android:text="Search"
+                android:text="Go Search"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/capriola"

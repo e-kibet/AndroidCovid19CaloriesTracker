@@ -30,9 +30,7 @@ class AddFoodView2Model(
 
     val currentTimeString = MutableLiveData<String>()
 
-    // Navigation Back to Overview
     val navigateToOverview = MutableLiveData<Boolean>()
-
 
     init {
         navigateToOverview.value = false
@@ -42,7 +40,6 @@ class AddFoodView2Model(
     }
 
     /** UI's LiveData */
-
     val displayKcalPer100G = Transformations.map(selectedFood) { food ->
         app.applicationContext.getString(R.string.display_kcal_per_100g, food.nutrients.kcal)
     }
