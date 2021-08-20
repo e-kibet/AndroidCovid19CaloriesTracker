@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:weightSum="8"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/baloo"
+                android:text="Scan a Barcode Item to add food"/>
+
+            <TextView
+                android:id="@+id/response"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="14dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:fontFamily="@font/baloo"
+                android:text="Scan a Barcode Item to add food"/>
+
+        </LinearLayout>
+
+
+
+        <SurfaceView
+            android:id="@+id/surface_view"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+</layout>

@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.androidcovid19caloriestracker.R
 import com.example.androidcovid19caloriestracker.adapters.Home2RVAdapter
@@ -58,8 +58,9 @@ class Home2Fragment : Fragment() {
         sharedViewModel.setNameData(sdf.format(Date()).toString())
 
         binding.btnOverviewToSearch.setOnClickListener {
+
             if(binding.currentDate.text.toString() != getString(R.string.date_not_found)){
-                    Navigation.createNavigateOnClickListener(R.id.action_home2Fragment_to_searchFragment, null).onClick(it)
+                showListViewSelection(it)
             }else{
                 Toast.makeText(requireContext(), "Date not found. Please select date", Toast.LENGTH_SHORT).show()
             }
@@ -88,6 +89,19 @@ class Home2Fragment : Fragment() {
             }
         })
         return binding.root
+    }
+    private fun showListViewSelection(view: View) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Choose the Method to add Food")
+        val animals = arrayOf("AutoComplete Search", "Scan Barcode")
+        builder.setItems(animals) { _, which ->
+            when (which) {
+                0 -> Navigation.createNavigateOnClickListener(R.id.action_home2Fragment_to_searchFragment, null).onClick(view)
+                1 -> Navigation.createNavigateOnClickListener(R.id.action_home2Fragment_to_scanFragment, null).onClick(view)
+            }
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
 

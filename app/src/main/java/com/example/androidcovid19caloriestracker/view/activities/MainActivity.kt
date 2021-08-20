@@ -63,6 +63,9 @@ class MainActivity : AppCompatActivity() {
                             supportActionBar?.setDisplayHomeAsUpEnabled(false)
                             binding.mainToolbar.title = "Calories Tracker"
                         }
+                        R.id.scanFragment -> {
+                            binding.fab.hide()
+                        }
                         R.id.searchFragment ->{
                             binding.fab.hide()
                         }

@@ -28,6 +28,7 @@
     <string name="format_total_kcal">%,.0f kcal</string>
     <string name="format_double">%,.0f</string>
     <string name="format_percent">%d %%</string>
+
     <style name="format_date">%d</style>
 
     <!--LABELS-->
@@ -40,7 +41,9 @@
 
     <!--Labels for fragments-->
     <string name="try_search">Try Search...</string>
+
     <style name="search">Search</style>
+
     <string name="search_food">Search Food</string>
     <string name="add_food">Add Food</string>
     <string name="food_macros">Food Macros</string>
@@ -52,4 +55,5 @@
     <string name="date_not_found">--Date Not Found--</string>
 
     <string name="food_list_not_found">Food list is not found</string>
+    <string name="scan_food">Scan Barcode Item</string>
 </resources>
