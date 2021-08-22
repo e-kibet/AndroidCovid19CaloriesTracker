@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by dev on 8/20/21, 10:21 PM
+  ~  * Copyright (c) 2021 . All rights reserved.
+  ~  * Last modified 8/20/21, 10:21 PM
+  ~  */
+  -->
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Customer">
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="Enable  Notifications"/>
+
+    <Preference
+        app:key="feedback"
+        app:title="Send feedback"
+        app:summary="Report technical issues or suggest new features"/>
+    </PreferenceCategory>
+
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="Enable Dark Theme"/>
+
+</PreferenceScreen>

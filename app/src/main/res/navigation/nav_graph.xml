@@ -48,6 +48,14 @@
             app:exitAnim="@anim/animation_leave_from_top"
             app:popEnterAnim="@anim/animation_from_top"
             app:popExitAnim="@anim/animation_leave_from_bottom" />
+
+        <action
+            android:id="@+id/action_home2Fragment_to_settingFragment"
+            app:destination="@+id/settingsFragment"
+            app:enterAnim="@anim/animation_from_bottom"
+            app:exitAnim="@anim/animation_leave_from_top"
+            app:popEnterAnim="@anim/animation_from_top"
+            app:popExitAnim="@anim/animation_leave_from_bottom" />
     </fragment>
 
     <fragment
@@ -127,5 +135,9 @@
             app:popExitAnim="@anim/animation_leave_from_bottom" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.androidcovid19caloriestracker.view.fragments.SettingFragment"/>
 
 </navigation>
